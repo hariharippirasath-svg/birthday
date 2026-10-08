@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    background:
+        radial-gradient(
+            circle at top,
+            #211b0d,
+            #080706 60%
+        );
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+}
+
+
+/* HEADER */
+
+.album-header {
+
+    text-align: center;
+
+    padding: 100px 20px 60px;
+}
+
+
+.album-header p {
+
+    color: #e9c65a;
+
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    margin-bottom: 15px;
+}
+
+
+.album-header h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    font-weight: 400;
+
+    color: #e9c65a;
+}
+
+
+.album-header span {
+
+    display: block;
+
+    color: #aaa;
+
+    margin-top: 15px;
+}
+
+
+/* GRID */
+
+.photo-grid {
+
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 20px;
+
+    columns: 4 250px;
+
+    column-gap: 15px;
+}
+
+
+.photo-card {
+
+    position: relative;
+
+    break-inside: avoid;
+
+    margin-bottom: 15px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #111;
+}
+
+
+.photo-card img {
+
+    width: 100%;
+
+    display: block;
+
+    transition: 0.6s;
+}
+
+
+.photo-card:hover img {
+
+    transform: scale(1.07);
+}
+
+
+.caption {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 50px 15px 15px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,0.9)
+        );
+
+    color: white;
+
+    font-size: 14px;
+}
+
+
+.bagheera {
+
+    border: 2px solid #e9c65a;
+}
+
+
+.bagheera-label {
+
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    background: #111;
+
+    color: #e9c65a;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    z-index: 2;
+}
+
+
+/* CONTINUE */
+
+.continue {
+
+    text-align: center;
+
+    padding: 100px 20px;
+}
+
+
+.continue p {
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+}
+
+
+.continue button {
+
+    padding: 14px 25px;
+
+    border: 1px solid #e9c65a;
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    color: #e9c65a;
+
+    cursor: pointer;
+}
+
+
+.continue button:hover {
+
+    background: #e9c65a;
+
+    color: #111;
+}
+
+
+/* LIGHTBOX */
+
+.lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.97);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 40px;
+}
+
+
+.lightbox.active {
+
+    display: flex;
+}
+
+
+.lightbox img {
+
+    max-width: 88vw;
+
+    max-height: 78vh;
+
+    border-radius: 12px;
+
+    object-fit: contain;
+}
+
+
+.close,
+.prev,
+.next {
+
+    position: absolute;
+
+    border: none;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 30px;
+}
+
+
+.close {
+
+    top: 20px;
+    right: 25px;
+}
+
+
+.prev {
+
+    left: 25px;
+}
+
+
+.next {
+
+    right: 25px;
+}
+
+
+.counter {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    color: #aaa;
+}
+
+
+.lightbox-caption {
+
+    position: absolute;
+
+    bottom: 55px;
+
+    color: white;
+
+    text-align: center;
+}
+
+
+@media(max-width:700px) {
+
+    .photo-grid {
+
+        columns: 2 130px;
+
+        padding: 10px;
+
+        column-gap: 8px;
+    }
+
+    .photo-card {
+
+        margin-bottom: 8px;
+
+        border-radius: 10px;
+    }
+
+    .prev {
+
+        left: 8px;
+    }
+
+    .next {
+
+        right: 8px;
+    }
+
+}

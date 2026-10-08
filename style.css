@@ -1,0 +1,420 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #070707;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 193, 7, 0.12),
+            transparent 40%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page-one {
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+
+    animation: fadeIn 1.5s ease;
+
+    z-index: 2;
+}
+
+
+.tiny {
+
+    color: #d9b94c;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.intro h1 {
+
+    font-size: clamp(45px, 9vw, 90px);
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+}
+
+
+.subtitle {
+
+    color: #aaa;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-area {
+
+    margin-top: 60px;
+
+    cursor: pointer;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+.cake {
+
+    position: relative;
+
+    width: 190px;
+
+    height: 150px;
+
+    margin: auto;
+}
+
+
+.cake-top {
+
+    width: 170px;
+    height: 60px;
+
+    position: absolute;
+
+    top: 55px;
+    left: 10px;
+
+    background: #e9c65a;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 42px;
+
+    box-shadow:
+        0 0 30px rgba(233, 198, 90, 0.25);
+}
+
+
+.cake-body {
+
+    position: absolute;
+
+    width: 150px;
+    height: 70px;
+
+    top: 80px;
+    left: 20px;
+
+    background: linear-gradient(
+        #b98c32,
+        #70521d
+    );
+
+    border-radius: 0 0 20px 20px;
+}
+
+
+.cake-plate {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 190px;
+    height: 15px;
+
+    background: #ddd;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   CANDLE
+========================= */
+
+.candle {
+
+    position: absolute;
+
+    width: 15px;
+    height: 55px;
+
+    background: white;
+
+    top: 0;
+    left: 88px;
+
+    border-radius: 5px;
+
+    z-index: 5;
+}
+
+
+.flame {
+
+    position: absolute;
+
+    width: 20px;
+    height: 28px;
+
+    left: -3px;
+    top: -27px;
+
+    background: #ffb300;
+
+    border-radius:
+        50% 50% 50% 50%;
+
+    box-shadow:
+        0 0 25px #ffb300;
+
+    animation: flame 0.7s infinite alternate;
+}
+
+
+.tap-text {
+
+    margin-top: 30px;
+
+    color: #e9c65a;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+.surprise {
+
+    display: none;
+
+    max-width: 650px;
+
+    animation: surpriseIn 1.5s ease;
+}
+
+
+.surprise.show {
+
+    display: block;
+}
+
+
+.firework {
+
+    font-size: 70px;
+
+    animation: firework 1s infinite;
+}
+
+
+.surprise h2 {
+
+    font-size: clamp(40px, 7vw, 70px);
+
+    font-weight: 400;
+
+    color: #e9c65a;
+
+    margin: 20px 0;
+}
+
+
+.surprise p {
+
+    font-family: Arial, sans-serif;
+
+    color: #ccc;
+
+    line-height: 1.8;
+
+    margin: 10px 0;
+}
+
+
+.surprise button {
+
+    margin-top: 35px;
+
+    padding: 14px 35px;
+
+    border: 1px solid #e9c65a;
+
+    background: transparent;
+
+    color: #e9c65a;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+.surprise button:hover {
+
+    background: #e9c65a;
+
+    color: #111;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes surpriseIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+@keyframes flame {
+
+    from {
+        transform: scale(0.9);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+
+@keyframes firework {
+
+    0% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .cake-area {
+        margin-top: 45px;
+    }
+
+    .intro h1 {
+        font-size: 48px;
+    }
+
+}
